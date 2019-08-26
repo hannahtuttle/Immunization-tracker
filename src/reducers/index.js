@@ -8,7 +8,7 @@ export const initialState = {
     vaccines: [{name: '', age: '', recommendedDate: '', completed: false}],
 }
 
-export const UsersReducer = (state = initialState. action) => {
+export const UserReducer = (state = initialState, action) => {
     switch(action.type){
         default:
         return state
