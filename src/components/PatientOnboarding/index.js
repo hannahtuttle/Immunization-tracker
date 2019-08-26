@@ -23,9 +23,9 @@ const PatientOnBoarding = () => {
     const handleDayClick = day => {
         setPatient({
             ...patient,
-            birthday: day
-            //.toLocaleDateString()
+            birthdate: day.toLocaleDateString()
         })
+        console.log('date picked')
     }
 
     return(
@@ -58,8 +58,9 @@ const PatientOnBoarding = () => {
             />
             <label>Date of Birth</label>
             <DayPickerInput 
-            onClick={day => handleDayClick(day)}
-            // selectedDays={patient.birthday}
+            //value={patient.birthdate}
+            onDayChange={day => handleDayClick(day)}
+            selectedDays={patient.birthdate}
             />
             <button>Submit</button>
         </form>

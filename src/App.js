@@ -14,6 +14,7 @@ function App() {
     <div className="App">
       <header className="App-header">
        <h1>Immunization App</h1>
+       <PatientOnBoarding />
       </header>
     </div>
     </UserContext.Provider>

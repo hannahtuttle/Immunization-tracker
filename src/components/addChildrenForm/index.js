@@ -13,19 +13,19 @@ const AddChildForm = () => {
     }
 
     const handleChange = event => {
-        setPatient({
-            ...patient,
+        setChild({
+            ...child,
             [event.target.name]:event.target.value
         })
         console.log('patient', patient)
     }
 
-    // const handleDayClick = day => {
-    //     setPatient({
-    //         ...patient,
-    //         birthday: day.toLocaleDateString()
-    //     })
-    // }
+    const handleDayClick = day => {
+        setChild({
+            ...child,
+            birthdate: day.toLocaleDateString()
+        })
+    }
 
     return(
         <form onSubmit={event => handleSubmit(event)}>
@@ -45,12 +45,15 @@ const AddChildForm = () => {
             />
             <label>Gender</label>
             <select name='gender' onChange={event=> handleChange(event)}>
+                <option value='pick one'>Pick one</option>
                 <option value='male'>Male</option>
                 <option value= 'female'>Female</option>
             </select>
             <label>Date of Birth</label>
-            {/* <DatePicker selected={startDate} onChange={date => setStartDate(date)} /> */}
-            {/* <DayPickerInput /> */}
+            <DayPickerInput 
+            onDayChange={day => handleDayClick(day)}
+            selectedDays={child.birthdate}
+            />
             <button>Add Family Member</button>
         </form>
     )
