@@ -59,7 +59,7 @@ const PatientOnBoarding = () => {
             <label>Date of Birth</label>
             <DayPickerInput 
             onClick={day => handleDayClick(day)}
-            selectedDays={patient.birthday}
+            // selectedDays={patient.birthday}
             />
             <button>Submit</button>
         </form>
