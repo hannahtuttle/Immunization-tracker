@@ -1,10 +1,18 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import NavHeader from '../PatientHeader/index.js'
+import axios from 'axios'
 import axiosWithAuth from '../../utils'
 
 
 const PatientDashboard = () => {
 
+    const[getPatient, setPatient]= useState([])
+
+    useEffect(() => {
+        axios.get('rcm-immunization-tracker.herokuapp.com/guardians/allguardians')
+        .then(res => console.log(res))
+        .catch(err => console.log(err.response))
+    })
 
     return (
         <>

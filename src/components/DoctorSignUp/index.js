@@ -2,25 +2,25 @@ import React, {useState} from 'react'
 import axios from 'axios'
 
 
-const SignUp = props => {
+const DoctorSignUp = props => {
 
-    const [newUser, setNewUser] = useState({name: '', username: '', password: ''})
+    const [newDoctor, setNewDoctor] = useState({name: '', username: '', password: ''})
 
 const handleSubmit= event => {
     event.preventDefault()
-    axios.post('https://rcm-immunization-tracker.herokuapp.com/guardian', newUser)
+    axios.post('https://rcm-immunization-tracker.herokuapp.com/doctor', newDoctor)
     .then(res => {
         localStorage.setItem('token', res)
         console.log(res)
-        props.history.push('/PatientOnboarding')
+        props.history.push('/DoctorOnboarding')
     })
     .catch(err => console.log(err.response))
 
 }
 
 const handleChange = event => {
-    setNewUser({
-        ...newUser,
+    setNewDoctor({
+        ...newDoctor,
         [event.target.name]:event.target.value
     })
 
@@ -32,14 +32,14 @@ return (
         <input
         name='name'
         type='text'
-        value ={newUser.name}
+        value ={newDoctor.name}
         onChange={event => handleChange(event)}
         />
         <label>UserName</label>
         <input
         name='username'
         type='email'
-        value ={newUser.username}
+        value ={newDoctor.username}
         onChange={event => handleChange(event)}
         />
        
@@ -47,7 +47,7 @@ return (
         <input
         name='password'
         type='text'
-        value ={newUser.password}
+        value ={newDoctor.password}
         onChange={event => handleChange(event)}
         />
         <button type='submit'>SignUp</button>
@@ -55,4 +55,4 @@ return (
 )
 }
 
-export default SignUp
+export default DoctorSignUp
