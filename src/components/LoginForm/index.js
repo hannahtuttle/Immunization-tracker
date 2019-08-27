@@ -1,22 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Formik } from 'formik';
+import { withFormik, Form, Field } from 'formik';
 import Yup from 'yup';
 
 
 
 
-export default function LoginWrapper() {
+function LoginWrapper() {
 
     return(
         <div className="login-wrapper">
-            <h1>Login</h1>
-            <h2>Please enter your email and password.</h2>
-            <Formik>
-                initialValues={{ email: 'email', password: 'password' }}
-                
+            <h2>LOGO</h2>
+            <LoginForm />
+            
 
-            </Formik>
+        </div>
+    )
+}
+
+function LoginForm({ }) {
+    return(
+        <div className="login-form">
+
         </div>
     )
 }
