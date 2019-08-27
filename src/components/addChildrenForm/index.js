@@ -2,30 +2,29 @@ import React, {useState} from 'react'
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
-const PatientOnBoarding = () => {
+const AddChildForm = () => {
 
-    const [patient, setPatient] = useState({firstname: '', lastname:'', birthdate: '', gender: '', location: ''})
+    const [child, setChild] = useState({firstname: '', lastname:'', birthdate: '', gender: ''})
 
     const handleSubmit = event => {
         event.preventDefault()
        
-        console.log('patient submit', patient)
+        console.log('child submit', patient)
     }
 
     const handleChange = event => {
-        setPatient({
-            ...patient,
+        setChild({
+            ...child,
             [event.target.name]:event.target.value
         })
         console.log('patient', patient)
     }
 
     const handleDayClick = day => {
-        setPatient({
-            ...patient,
+        setChild({
+            ...child,
             birthdate: day.toLocaleDateString()
         })
-        console.log('date picked')
     }
 
     return(
@@ -46,25 +45,18 @@ const PatientOnBoarding = () => {
             />
             <label>Gender</label>
             <select name='gender' onChange={event=> handleChange(event)}>
+                <option value='pick one'>Pick one</option>
                 <option value='male'>Male</option>
                 <option value= 'female'>Female</option>
             </select>
-            <label>Location</label>
-            <input 
-            name='location'
-            type='text'
-            value={patient.location}
-            onChange={event => handleChange(event)}
-            />
             <label>Date of Birth</label>
             <DayPickerInput 
-            //value={patient.birthdate}
             onDayChange={day => handleDayClick(day)}
-            selectedDays={patient.birthdate}
+            selectedDays={child.birthdate}
             />
-            <button>Submit</button>
+            <button>Add Family Member</button>
         </form>
     )
 }
 
-export default PatientOnBoarding;
+export default AddChildForm;
