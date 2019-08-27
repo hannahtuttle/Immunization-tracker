@@ -9,9 +9,9 @@ import axios from 'axios'
 
 function Login({ errors, touched, values }) {
 
-    const [login, setLogin] = useState({ email: '', password: ''});
+    const [login, setLogin] = useState({ email: '', password: '' });
 
-    return(
+    return (
         <div className="login-wrapper">
             <h2>[LOGO]</h2>
             <h3>Sign in</h3>
@@ -27,10 +27,10 @@ function Login({ errors, touched, values }) {
                     <p className="error">{errors.password}</p>
                 )}
                 <br />
-                <button type="submit">Sign Up</button>
+                <button type="submit">Login</button>
             </Form>
             <p>Don't have an account? SIGN UP</p>
-            <p>Forgot your password?</p>   
+            <p>Forgot your password?</p>
         </div>
     );
 }
@@ -51,12 +51,12 @@ const LoginForm = withFormik({
     handleSubmit(values) {
         console.log(values);
         axios.post('http://rcm-immunization-tracker.herokuapp.com/guardians/allguardians', values)
-        .then(response => {
-            localStorage.setItem('token', response)
-            console.log(response)
-            
-        })
-        .catch(err => console.log(err.response))
+            .then(response => {
+                localStorage.setItem('token', response)
+                console.log(response)
+
+            })
+            .catch(err => console.log(err.response))
     }
 
 })(Login);
@@ -82,24 +82,24 @@ export default LoginForm;
 //             <h2>[LOGO]</h2>
 //             <h3>Sign in</h3>
 //             <form onSubmit={event => handleSubmit(event)}>
-//                 <input 
+//                 <input
 //                     name='email'
 //                     type='text'
 //                     placeholder='Email'
-//                     value={login.email}                    
+//                     value={login.email}
 //                     onchange={event => handleChange(event)}
 //                 />
-//                 <input 
+//                 <input
 //                     name='password'
 //                     type='password'
 //                     placeholder='Password'
-//                     value={login.password}                    
+//                     value={login.password}
 //                     onchange={event => handleChange(event)}
 //                 />
-//                 <button type="submit">Sign Up</button>                              
+//                 <button type="submit">Sign Up</button>
 //             </form>
 //             <p>Don't have an account? SIGN UP</p>
-//             <p>Forgot your password?</p>   
+//             <p>Forgot your password?</p>
 //         </div>
 //     );
 // }
