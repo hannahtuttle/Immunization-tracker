@@ -1,22 +1,21 @@
-
-import NavHeader from '../PatientHeader/index.js'
-import { axiosWithAuth } from '../../utils'
 import React, { useState, useEffect } from 'react'
+import NavHeader from '../PatientHeader/index.js'
+import axios from 'axios'
+import axiosWithAuth from '../../utils'
 
 
 
 const PatientDashboard = () => {
+    const [getPatient, setPatient] = useState([])
 
-    const [getPaitent, setPaient] = useState([])
     useEffect(() => {
-        axiosWithAuth().get(`https://rcm-immunization-tracker.herokuapp.com/guardian/${guardianid}`)
-            .then(res => {
-                console.log('guardianid', res)
-            })
-            .catch(err => {
-                console.log('We did this wrong', err.response)
-            })
+        axios.get('rcm-immunization-tracker.herokuapp.com/guardians/allguardians')
+            .then(res => console.log(res))
+            .catch(err => console.log(err.response))
     })
+
+
+
     return (
         <>
             <NavHeader />
