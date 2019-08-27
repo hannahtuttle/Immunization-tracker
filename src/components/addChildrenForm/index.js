@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
+import {axiosWithAuth} from '../../utils'
 
 const AddChildForm = () => {
 
@@ -8,7 +9,11 @@ const AddChildForm = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
-       
+       axiosWithAuth().post('', child)
+       .then(res => {
+           console.log(res)
+       })
+       .catch(err => err.response)
         console.log('child submit', patient)
     }
 

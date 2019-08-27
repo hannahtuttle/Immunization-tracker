@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+//import { axiosWithAuth } from '../../utils';
+import axios from 'axios'
+
 
 
 function Login({ errors, touched, values }) {
@@ -47,6 +50,13 @@ const LoginForm = withFormik({
 
     handleSubmit(values) {
         console.log(values);
+        axios.post('http://rcm-immunization-tracker.herokuapp.com/guardians/allguardians', values)
+        .then(response => {
+            localStorage.setItem('token', response)
+            console.log(response)
+            
+        })
+        .catch(err => console.log(err.response))
     }
 
 })(Login);

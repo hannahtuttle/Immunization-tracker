@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import DayPickerInput from 'react-day-picker/DayPickerInput';
-import 'react-day-picker/lib/style.css';
+import 'react-day-picker/lib/style.css'
+import {axiosWithAuth} from '../../utils'
+
 
 const PatientOnboarding = () => {
 
@@ -8,7 +10,12 @@ const PatientOnboarding = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
+        axiosWithAuth().post('', patient)
+        .then(res => {
+        console.log(res)
 
+        })
+        .catch(err => console.log(err.response))
         console.log('patient submit', patient)
     }
 
