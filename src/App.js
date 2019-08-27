@@ -4,7 +4,7 @@ import { UserReducer, initialState } from './reducers/index.js'
 import { UserContext } from './contexts/UserContext.js'
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom'
 import PrivateRoute from './components/privateRoute'
-import SignUp from './components/SignUpForm'
+// import SignUp from './components/SignUpForm'
 import PatientOnboarding from './components/PatientOnboarding'
 import PatientDashboard from './components/PatientDashboard'
 import { DoctorDashboard } from './components/DoctorDashboard'
@@ -30,7 +30,7 @@ function App() {
             <Link to='/SignUp'>SingUp</Link>
           </ul>
           <Route path='/' component={Login} />
-          <Route path='/SignUp' component={SignUp} />
+          {/* <Route path='/SignUp' component={SignUp} /> */}
           <PrivateRoute exact path='/PatientOnboarding' component={PatientOnboarding} />
           <PrivateRoute exact path='/PatientDashboard' component={PatientDashboard} />
           <PrivateRoute exact path='/DoctorDashboard' component={DoctorDashboard} />
