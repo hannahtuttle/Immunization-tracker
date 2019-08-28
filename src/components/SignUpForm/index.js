@@ -4,15 +4,15 @@ import axios from 'axios'
 
 const SignUp = props => {
 
-    const [newUser, setNewUser] = useState({name: '', username: '', password: ''})
+    const [newUser, setNewUser] = useState({username: '', password: ''})
 
 const handleSubmit= event => {
     event.preventDefault()
     axios.post('https://rcm-immunization-tracker.herokuapp.com/guardian', newUser)
     .then(res => {
-        localStorage.setItem('token', res)
+       
         console.log(res)
-        props.history.push('/PatientOnboarding')
+        props.history.push('/')
     })
     .catch(err => console.log(err.response))
 
@@ -25,16 +25,9 @@ const handleChange = event => {
     })
 
 }
-
+  
 return (
     <form onSubmit={event => handleSubmit(event)}>
-        <label>Name</label>
-        <input
-        name='name'
-        type='text'
-        value ={newUser.name}
-        onChange={event => handleChange(event)}
-        />
         <label>UserName</label>
         <input
         name='username'
