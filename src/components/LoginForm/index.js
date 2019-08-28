@@ -49,11 +49,19 @@ const LoginForm = withFormik({
     }),
 
     handleSubmit(values) {
+        const submitValues = { 'username': values.email, 'password': values.password }
         console.log(values);
-        axios.post('http://rcm-immunization-tracker.herokuapp.com/guardians/allguardians', values)
+        axios.post('https://rcm-immunization-tracker.herokuapp.com/login', `grant_type=password&username=${submitValues['username']}&password=${submitValues['password']}`, {
+            headers: {
+                Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
+                'Content-Type': 'application/x-www-form-urlencoded'
+
+            }
+        })
+
             .then(response => {
-                localStorage.setItem('token', response)
-                console.log(response)
+                localStorage.setItem('token', response.data.access_token)
+                console.log('Result', response)
 
             })
             .catch(err => console.log(err.response))

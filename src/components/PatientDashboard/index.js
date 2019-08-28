@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import NavHeader from '../PatientHeader/index.js'
 import axios from 'axios'
-import axiosWithAuth from '../../utils'
 
 
 
