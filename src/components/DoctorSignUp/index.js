@@ -12,6 +12,7 @@ const DoctorSignUp = props => {
             .then(res => {
 
                 console.log(res)
+
                 props.history.push('/DoctorLogin')
             })
             .catch(err => console.log(err.response))

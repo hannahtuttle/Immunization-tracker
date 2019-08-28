@@ -6,7 +6,7 @@ export const DoctorOnboarding = () => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    axios.post('http://rcm-immunization-tracker.herokuapp.com/', doctor, {
+    axios.post('http://rcm-immunization-tracker.herokuapp.com/doctors/doctor', doctor, {
       headers: {
         Authorization: 'token',
         'context-type': 'placeholder'
@@ -28,13 +28,7 @@ export const DoctorOnboarding = () => {
     console.log('doctor', doctor)
   }
 
-  const handleDayClick = day => {
-    setDoctor({
-      ...doctor,
-      birthdate: day.toLocaleDateString()
-    })
-    console.log('date picked')
-  }
+
 
   return (
     <form onSubmit={event => handleSubmit(event)}>
