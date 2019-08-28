@@ -7,7 +7,7 @@ import axios from 'axios'
 
 
 
-function Login({ errors, touched, values }) {
+function Login({ errors, touched, values, }) {
 
     const [login, setLogin] = useState({ email: '', password: '' });
 
@@ -36,7 +36,7 @@ function Login({ errors, touched, values }) {
 }
 
 const LoginForm = withFormik({
-    mapPropsToValues({ email, password }) {
+    mapPropsToValues({ email, password, }) {
         return {
             email: email || '',
             password: password || '',
@@ -47,6 +47,8 @@ const LoginForm = withFormik({
         email: Yup.string().required('Please enter your email address.'),
         password: Yup.string().required('Please enter your password.')
     }),
+
+
 
     handleSubmit(values) {
         const submitValues = { 'username': values.email, 'password': values.password }
@@ -62,7 +64,7 @@ const LoginForm = withFormik({
             .then(response => {
                 localStorage.setItem('token', response.data.access_token)
                 console.log('Result', response)
-
+                window.location.href = '/PatientOnboarding'
             })
             .catch(err => console.log(err.response))
     }

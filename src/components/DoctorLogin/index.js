@@ -61,6 +61,7 @@ const DoctorLoginForm = withFormik({
             .then(response => {
                 localStorage.setItem('token', response.data.access_token)
                 console.log('Result', response)
+                window.location.href = '/DoctorOnboarding'
             })
             .catch(err => console.log(err.response))
     }
