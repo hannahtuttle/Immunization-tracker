@@ -4,11 +4,11 @@ import axios from 'axios'
 
 const SignUp = props => {
 
-    const [newUser, setNewUser] = useState({username: '', password: ''})
+    const [newUser, setNewUser] = useState({name: '', username: '', password: ''})
 
 const handleSubmit= event => {
     event.preventDefault()
-    axios.post('https://rcm-immunization-tracker.herokuapp.com/users/userguardian ', newUser)
+    axios.post('https://rcm-immunization-tracker.herokuapp.com/guardian', newUser)
     .then(res => {
         localStorage.setItem('token', res)
         console.log(res)
