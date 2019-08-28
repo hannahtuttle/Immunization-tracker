@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css'
-import {axiosWithAuth} from '../../utils'
-
+import axios from 'axios'
 
 const PatientOnboarding = () => {
 
@@ -10,12 +9,18 @@ const PatientOnboarding = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        axiosWithAuth().post('', patient)
-        .then(res => {
-        console.log(res)
+        axios.post('http://rcm-immunization-tracker.herokuapp.com/', patient, {
+            headers: {
+                Authorization: 'token',
+                'context-type': 'placeholder'
 
+            }
         })
-        .catch(err => console.log(err.response))
+            .then(res => {
+                console.log(res)
+
+            })
+            .catch(err => console.log(err.response))
         console.log('patient submit', patient)
     }
 

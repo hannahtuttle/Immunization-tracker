@@ -1,6 +1,5 @@
 import React, { useReducer } from 'react';
 
-import { UserReducer, initialState } from './reducers/index.js'
 import { UserContext } from './contexts/UserContext.js'
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom'
 import PrivateRoute from './components/privateRoute'
@@ -19,7 +18,6 @@ import './App.css';
 
 function App() {
 
-  const [state, dispatch] = useReducer(UserReducer, initialState)
 
   return (
     <Router>
@@ -30,12 +28,12 @@ function App() {
               <Link to='/'>Log In</Link>
             </li>
             <li>
-            <Link to='/SignUp'>SingUp</Link>
+              <Link to='/SignUp'>SingUp</Link>
             </li>
             <li>
-            <Link to ='/DoctorSignUp'>Doctor Sign Up</Link>
+              <Link to='/DoctorSignUp'>Doctor Sign Up</Link>
             </li>
-            <Link to = '/DoctorLogin' >Doctor Login</Link>
+            <Link to='/DoctorLogin' >Doctor Login</Link>
           </ul>
           <Route exact path='/' component={Login} />
           <Route exact path='/SignUp' component={SignUp} />

@@ -11,7 +11,7 @@ function DoctorLogin({ errors, touched, values }) {
 
     //const [doctorLogin, setDoctorLogin] = useState({ email: '', password: ''});
 
-    return(
+    return (
         <div className="login-wrapper">
             <h2>[LOGO]</h2>
             <h3>Sign in</h3>
@@ -30,7 +30,7 @@ function DoctorLogin({ errors, touched, values }) {
                 <button type="submit">Sign Up</button>
             </Form>
             <p>Don't have an account? SIGN UP</p>
-            <p>Forgot your password?</p>   
+            <p>Forgot your password?</p>
         </div>
     );
 }
@@ -49,12 +49,20 @@ const DoctorLoginForm = withFormik({
     }),
 
     handleSubmit(values) {
-        console.log(values);
-        axios.post(' https://rcm-immunization-tracker.herokuapp.com/doctor', values)
-        .then(response => {
-            localStorage.setItem('token', response)
-            console.log(response)})
-        .catch(err => console.log(err.response))
+        const submitValues = { 'username': values.email, 'password': values.password }
+
+        axios.post('https://rcm-immunization-tracker.herokuapp.com/login', `grant_type=password&username=${submitValues['username']}&password=${submitValues['password']}`, {
+            headers: {
+                Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
+                'Content-Type': 'application/x-www-form-urlencoded'
+
+            }
+        })
+            .then(response => {
+                localStorage.setItem('token', response.data.access_token)
+                console.log('Result', response)
+            })
+            .catch(err => console.log(err.response))
     }
 
 })(DoctorLogin);

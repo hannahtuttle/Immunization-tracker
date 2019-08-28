@@ -1,9 +1,8 @@
 import React from 'react'
-import { axiosWithAuth } from '../../utils'
-
+import axios from 'axios'
 
 export const DoctorDashboard = () => {
-  axiosWithAuth().get('')
+  axios.get('')
     .then(res => {
       console.log('result', res)
     })
