@@ -26,3 +26,5 @@ render() {
     )
 }
 }
+
+export default Immunizations

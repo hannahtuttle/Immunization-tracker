@@ -11,31 +11,31 @@ const PatientOnboarding = props => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        // const token =localStorage.getItem('token')
-        // const currentUser = JSON.parse(localStorage.getItem('currentParent'))
-        //  const parent = currentParent.map(id => id.userid)
-        //  console.log('current user id', currentParent)
-        //  console.log('user', parent[0])
-        // axios.post('https://rcm-immunization-tracker.herokuapp.com/guardians/guardian', patient, {
-        //     headers: {
-        //         Authorization: `bearer ${token}`,
-        //         //'context-type': 'placeholder'
+        const token =localStorage.getItem('token')
+        const currentParent = JSON.parse(localStorage.getItem('currentParent'))
+         const parent = currentParent.map(id => id.userid)
+         console.log('current user id', currentParent)
+         console.log('user', parent[0])
+        axios.post('https://rcm-immunization-tracker.herokuapp.com/guardians/guardian', patient, {
+            headers: {
+                Authorization: `bearer ${token}`,
+                //'context-type': 'placeholder'
 
-        //     }
-        // })
-        //     .then(res => {
-        //         console.log('response from onboarding gaurdian', res)
-        //         //need to be able to get an id from the post response
-        //         localStorage.setItem('currentPatient', `${res.data.guardianid}`)
-        //          console.log('id response from adding a parent/guardian',res.data.guardianid)
-        //          axios.put(`https://rcm-immunization-tracker.herokuapp.com/doctors/doctor/${res.data.guardianid}/user/${user[0]}`)
-        //          .then(res => console.log('put patient to user id', res))
-        //          .catch(err => console.log('patien put not working', err.response))
-        //           props.history.push('/PatientDashboard')
-        //     })
-        //     .catch(err => console.log(err.response))
-        // console.log('patient submit', patient)
-    }
+            }
+        })
+            .then(res => {
+                console.log('response from onboarding gaurdian', res)
+                //need to be able to get an id from the post response
+                localStorage.setItem('currentPatient', `${res.data.guardianid}`)
+                 console.log('id response from adding a parent/guardian',res.data.guardianid)
+                 axios.put(`https://rcm-immunization-tracker.herokuapp.com/guardians/guardian/${res.data.guardianid}/user/${parent[0]}`)
+                 .then(res => console.log('put patient to user id', res))
+                 .catch(err => console.log('patien put not working', err.response))
+                  props.history.push('/PatientDashboard')
+             })
+            .catch(err => console.log(err.response))
+        console.log('patient submit', patient)
+}
 
     const handleChange = event => {
         setPatient({

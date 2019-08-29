@@ -7,29 +7,29 @@ export const DoctorOnboarding = props => {
 
   const handleSubmit = event => {
     event.preventDefault()
-    // const token =localStorage.getItem('token')
-    // const currentUser = JSON.parse(localStorage.getItem('currentUser'))
-    // const user = currentUser.map(id => id.userid)
-    // console.log('current user id', currentUser)
-    // console.log('user', user[0])
-    // axios.post('https://rcm-immunization-tracker.herokuapp.com/doctors/doctor', doctor, {
-    //   headers: {
-    //     Authorization: `bearer ${token}`,
-    //     //'context-type': 'placeholder'
+    const token =localStorage.getItem('token')
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+    const user = currentUser.map(id => id.userid)
+    console.log('current user id', currentUser)
+    console.log('user', user[0])
+    axios.post('https://rcm-immunization-tracker.herokuapp.com/doctors/doctor', doctor, {
+      headers: {
+        Authorization: `bearer ${token}`,
+        //'context-type': 'placeholder'
 
-    //   }
-    // })
-    //   .then(res => {
-    //     //setDoctorID({ doctorid: res.data.doctorid})
-    //     localStorage.setItem('currentDoctor', `${res.data.doctorid}`)
-    //     console.log('id response from adding a doctor',res.data.doctorid)
-    //      axios.put(`https://rcm-immunization-tracker.herokuapp.com/doctors/doctor/${res.data.doctorid}/user/${user[0]}`)
-    //      .then(res => console.log('put doctors to user id', res))
-    //      .catch(err => console.log('doctor put not working', err.response))
-    //       props.history.push('/DoctorDashboard')
-    //      //console.log('doctorID', doctorID)
-    //     })
-    //     .catch(err => console.log('error from posting doctor', err.response))
+      }
+    })
+      .then(res => {
+        //setDoctorID({ doctorid: res.data.doctorid})
+        localStorage.setItem('currentDoctor', `${res.data.doctorid}`)
+        console.log('id response from adding a doctor',res.data.doctorid)
+         axios.put(`https://rcm-immunization-tracker.herokuapp.com/doctors/doctor/${res.data.doctorid}/user/${user[0]}`)
+         .then(res => console.log('put doctors to user id', res))
+         .catch(err => console.log('doctor put not working', err.response))
+          props.history.push('/DoctorDashboard')
+         //console.log('doctorID', doctorID)
+        })
+        .catch(err => console.log('error from posting doctor', err.response))
       
    // console.log('doctor submit', doctor)
   }
