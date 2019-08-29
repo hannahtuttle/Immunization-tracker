@@ -65,16 +65,16 @@ const LoginForm = withFormik({
                 //localStorage.clear()
                 localStorage.setItem('token', response.data.access_token)
                 console.log('Result', response)
-                window.location.href = '/PatientOnboarding'
             })
             .catch(err => console.log(err.response))
-        // axios.get('https://rcm-immunization-tracker.herokuapp.com/users/users')
-        //     .then(res => {
-        //         const currentParent = res.data.filter(id => id.username === values.email)
-        //         console.log('current parent array', currentParent)
-        //         localStorage.setItem('currentParent', JSON.stringify(currentParent))  
-        //     })
-        //     .catch(err => console.log('error on get request to get all users', err.response))
+            axios.get('https://rcm-immunization-tracker.herokuapp.com/users/users')
+            .then(res => {
+                const currentParent = res.data.filter(id => id.username === values.email)
+                console.log('current parent array', currentParent)
+                localStorage.setItem('currentParent', JSON.stringify(currentParent))  
+                window.location.href = '/PatientOnboarding'
+            })
+            .catch(err => console.log('error on get request to get all users', err.response))
     }
 
 })(Login);

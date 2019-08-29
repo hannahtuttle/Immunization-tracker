@@ -61,17 +61,17 @@ const DoctorLoginForm = withFormik({
             .then(response => {
                 localStorage.setItem('token', response.data.access_token)
                 console.log('Result', response)
-                window.location.href = '/DoctorOnboarding'
             })
             .catch(err => console.log(err.response))
-        // axios.get('https://rcm-immunization-tracker.herokuapp.com/users/users')
-        // .then(res => {
-        //     const currentUser = res.data.filter(id => id.username === values.email)
-        //     console.log('current user array', currentUser)
-        //     localStorage.setItem('currentUser', JSON.stringify(currentUser))
-        //     //console.log('checking to see if i get a list of all users', res.data)
-        // })
-        // .catch(err => console.log('error on get request to get all users', err.response))
+            axios.get('https://rcm-immunization-tracker.herokuapp.com/users/users')
+            .then(res => {
+                const currentUser = res.data.filter(id => id.username === values.email)
+                console.log('current user array', currentUser)
+                localStorage.setItem('currentUser', JSON.stringify(currentUser))
+                window.location.href = '/DoctorOnboarding'
+            //console.log('checking to see if i get a list of all users', res.data)
+        })
+        .catch(err => console.log('error on get request to get all users', err.response))
     }
 
 })(DoctorLogin);
