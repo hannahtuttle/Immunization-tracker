@@ -1,6 +1,5 @@
 import React, { useReducer } from 'react';
 
-import { UserContext } from './contexts/UserContext.js'
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom'
 import PrivateRoute from './components/privateRoute'
 import SignUp from './components/SignUpForm'
@@ -13,6 +12,7 @@ import DoctorLogin from './components/DoctorLogin'
 import Login from './components/LoginForm'
 
 import './App.css';
+import Immunizations from './components/ImmunizationPage/index.js';
 
 
 
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <Router>
-      <UserContext.Provider value={''}>
+     
         <div className="App">
           <ul>
             <li>
@@ -35,6 +35,7 @@ function App() {
             </li>
             <Link to='/DoctorLogin' >Doctor Login</Link>
           </ul>
+          <Route exact path='/immunizations' component={Immunizations} />
           <Route exact path='/' component={Login} />
           <Route exact path='/SignUp' component={SignUp} />
           <Route exact path='/DoctorSignUp' component={DoctorSignUp} />
@@ -48,7 +49,6 @@ function App() {
           <PrivateRoute exact path='/DoctorDashboard' component={DoctorDashboard} />
           <PrivateRoute exact path='/DoctorOnboarding' component={DoctorOnboarding} /> */}
         </div>
-      </UserContext.Provider>
     </Router>
   );
 }

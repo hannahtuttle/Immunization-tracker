@@ -1,30 +1,37 @@
-import React, {Component} from 'react'
+import React, { useContext} from 'react'
+import {UserContext} from '../../contexts/UserContext'
 
 import NavHeader from '../PatientHeader/index.js'
 
-class Immunizations extends Component{
-constructor(props) {
-    super(props)
+const Immunizations = ({ward}) => {
 
-}
+    // const child = useContext(UserContext)
 
-render() {
+    // console.log('child', child)
+
     return(
+      
         <>
-        <NavHeader/>
+        {/* <NavHeader/> */}
         <div>
-        <h2>{/*props.firstname props.lastname */}</h2>
+           
+        <h2>{ward.firstname} {ward.lastname }</h2>
         <p>{/* props.birthday*/}</p>
         <p>{/*props.gender*/}</p>
         <p>{/*props.location*/}</p>
         </div>
         <h3>Immunization Schedule</h3>
         <div>
-        {/*map over childs completed/recomended vaccinies? */}
+        {ward.immunizations.map(shot => 
+        <div>
+            <p>{shot.immunizationname}</p>
+            <p>{shot.clinic}</p>
+        </div>)}
         </div>
         </>
+      
     )
-}
+
 }
 
 export default Immunizations
