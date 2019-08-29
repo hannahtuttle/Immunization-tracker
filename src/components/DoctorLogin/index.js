@@ -64,6 +64,14 @@ const DoctorLoginForm = withFormik({
                 window.location.href = '/DoctorOnboarding'
             })
             .catch(err => console.log(err.response))
+        // axios.get('https://rcm-immunization-tracker.herokuapp.com/users/users')
+        // .then(res => {
+        //     const currentUser = res.data.filter(id => id.username === values.email)
+        //     console.log('current user array', currentUser)
+        //     localStorage.setItem('currentUser', JSON.stringify(currentUser))
+        //     //console.log('checking to see if i get a list of all users', res.data)
+        // })
+        // .catch(err => console.log('error on get request to get all users', err.response))
     }
 
 })(DoctorLogin);
