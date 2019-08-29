@@ -8,10 +8,24 @@ const PatientDashboard = () => {
     const [getPatient, setPatient] = useState([])
 
     useEffect(() => {
-        axios.get('rcm-immunization-tracker.herokuapp.com/guardians/allguardians')
-            .then(res => console.log(res))
-            .catch(err => console.log(err.response))
-    })
+        //this endpoint is not working
+        // axios.get('rcm-immunization-tracker.herokuapp.com/guardians/allguardians')
+        //     .then(res => console.log(res))
+        //     .catch(err => console.log(err.response))
+    }, [])
+
+    // useEffect(()=> {
+    //     axios.get(`https://rcm-immunization-tracker.herokuapp.com/doctors/alldoctors`)
+    //     .then(res => {
+    //         //setPatient(res.data)
+    //         const id = '3'
+    //         const example = res.data.filter(person => person.doctorid === id)
+    //         setPatient(example)
+    //         console.log('example', example)
+    //         console.log('getPatient', getPatient)
+    //         console.log(res.data)})
+    //     .catch(err => console.log(err.response))
+    // }, [])
 
 
 
