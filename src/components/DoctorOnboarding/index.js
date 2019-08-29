@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const DoctorOnboarding = props => {
   const [doctor, setDoctor] = useState({name: ''})
-  //const [doctorID, setDoctorID] = useState({doctorid: ''})
+  const [doctorID, setDoctorID] = useState('')
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -21,11 +21,14 @@ export const DoctorOnboarding = props => {
     })
       .then(res => {
         //setDoctorID({ doctorid: res.data.doctorid})
-        localStorage.setItem('currentDoctor', `${res.data.doctorid}`)
+        localStorage.setItem('currentDoctor', `${res.data.doctorid}`, 'token')
         console.log('id response from adding a doctor',res.data.doctorid)
          axios.put(`https://rcm-immunization-tracker.herokuapp.com/doctors/doctor/${res.data.doctorid}/user/${user[0]}`)
          .then(res => console.log('put doctors to user id', res))
          .catch(err => console.log('doctor put not working', err.response))
+         //window.location.href = '/DoctorDashboard'
+         //const token =localStorage.getItem('token')
+         console.log(token)
           props.history.push('/DoctorDashboard')
          //console.log('doctorID', doctorID)
         })
@@ -42,7 +45,7 @@ export const DoctorOnboarding = props => {
    // console.log('doctor', doctor)
   }
 
-
+//console.log('doctro id in state', doctorID)
 
   return (
     <form onSubmit={event => handleSubmit(event)}>

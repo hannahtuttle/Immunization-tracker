@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import NavHeader from '../PatientHeader/index.js'
 import axios from 'axios'
+import { UserContext } from '../../contexts/UserContext'
+import Immunizations from '../ImmunizationPage'
 
 
 
@@ -14,7 +16,8 @@ const PatientDashboard = () => {
         axios.get('https://rcm-immunization-tracker.herokuapp.com/guardians/allguardians')
             .then(res => {
                 setPatient(res.data)
-                console.log('allguardians', res)})
+               // console.log('allguardians', res)
+            })
             .catch(err => console.log(err.response))
     }, [])
 
@@ -36,18 +39,25 @@ const PatientDashboard = () => {
 
     return (
         <>
+        {/* <UserContext.Provider value={rory}> */}
             <NavHeader />
             <div>  <img /></div>
             <div>
                 <h3>My Records</h3>
             {rory.map(parent => 
                 parent.wards.map(ward => 
-                    <a href='/immunization'>{ward.firstname}</a>
-                    )
+                    
+                    <>
+                        <button >{ward.firstname}</button>
+                        <Immunizations ward={ward}/>
+                    </>
+                   
+                )
                 )}
                 <button>Add Member</button>
                 <button onClick={localStorage.clear()}>Log out</button>
             </div>
+            {/* </UserContext.Provider> */}
         </>
     )
 }
