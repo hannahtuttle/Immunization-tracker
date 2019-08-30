@@ -11,7 +11,7 @@ import DoctorSignUp from './components/DoctorSignUp'
 import DoctorLogin from './components/DoctorLogin'
 import Login from './components/LoginForm'
 
-import './App.css';
+import './App.scss';
 import Immunizations from './components/ImmunizationPage/index.js';
 
 
