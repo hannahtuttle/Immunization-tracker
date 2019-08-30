@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
+import NavHeader from '../PatientHeader/index.js'
+
 export const DoctorOnboarding = props => {
   const [doctor, setDoctor] = useState({name: ''})
   const [doctorID, setDoctorID] = useState('')
@@ -48,23 +50,27 @@ export const DoctorOnboarding = props => {
 //console.log('doctro id in state', doctorID)
 
   return (
-    <form onSubmit={event => handleSubmit(event)}>
-      <label>Name</label>
-      <input
-        name='name'
-        type='text'
-        value={doctor.name}
-        onChange={event => handleChange(event)}
-      />
-      {/* <label>Last name</label>
-      <input
-        name='lastname'
-        type='text'
-        value={doctor.lastname}
-        onChange={event => handleChange(event)}
-      /> */}
+    <>
+      <NavHeader />
+      <form className="sign-up-form" onSubmit={event => handleSubmit(event)}>
+      <img src='./assets/logo.png' alt='Immunify Logo' />
+        <label>Name</label>
+        <input className='signUpInput'
+          name='name'
+          type='text'
+          value={doctor.name}
+          onChange={event => handleChange(event)}
+        />
+        {/* <label>Last name</label>
+        <input
+          name='lastname'
+          type='text'
+          value={doctor.lastname}
+          onChange={event => handleChange(event)}
+        /> */}
 
-      <button>Submit</button>
-    </form>
+        <button className='signUpButton'>Submit</button>
+      </form>
+    </>
   )
 }

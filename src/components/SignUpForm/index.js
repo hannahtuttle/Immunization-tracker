@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import './SignUpForm.scss'
 
+import LoginHeader from '../LoginHeader'
 
 const SignUp = props => {
 
@@ -29,28 +30,29 @@ const SignUp = props => {
 
     return (
         <>
-        <form className='sign-up-form' onSubmit={event => handleSubmit(event)}>
-        <div>logo</div>
-        <h2>Welcome to Immunify</h2>
-        <h3>Sign up</h3>
-            <label className='signUplabel'>UserName</label>
-            <input
-                className='signUpInput'
-                name='username'
-                type='email'
-                value={newUser.username}
-                onChange={event => handleChange(event)}
-            />
+            <LoginHeader />
+            <form className='sign-up-form' onSubmit={event => handleSubmit(event)}>
+            <img src='./assets/logo.png' alt='Immunify Logo' />
+            <h2>Welcome to Immunify</h2>
+            <h3>Sign up</h3>
+                <label className='signUplabel'>UserName</label>
+                <input
+                    className='signUpInput'
+                    name='username'
+                    type='email'
+                    value={newUser.username}
+                    onChange={event => handleChange(event)}
+                />
 
-            <label className='signUplabel'>Password</label>
-            <input
-                className='signUpInput'
-                name='password'
-                type='text'
-                value={newUser.password}
-                onChange={event => handleChange(event)}
-            />
-            <button className='signUpButton' type='submit'>SignUp</button>
+                <label className='signUplabel'>Password</label>
+                <input
+                    className='signUpInput'
+                    name='password'
+                    type='text'
+                    value={newUser.password}
+                    onChange={event => handleChange(event)}
+                />
+                <button className='signUpButton' type='submit'>Sign Up</button>
         </form>
         </>
     )

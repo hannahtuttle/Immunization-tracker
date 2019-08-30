@@ -17,7 +17,7 @@ function Login({ errors, touched, values, }) {
     const [login, setLogin] = useState({ email: '', password: '' });
 
     return (
-        <div className='login-wrapper'>
+        <>
             <LoginHeader />
             <div className="sign-up-form">
                 <img src='./assets/logo.png' alt='Immunify Logo' />
@@ -34,14 +34,14 @@ function Login({ errors, touched, values, }) {
                         <p className="error">{errors.password}</p>
                     )}
                     <br />
-                    <button className='signUpButton ' type="submit">Login</button>
+                    <button className='signUpButton' type="submit">Login</button>
                 </Form>
                 <p>Don't have an account?<Link to='/SignUp'>SIGN UP</Link></p>
-                <p>Doctors/staff please click<Link to='/DoctorSignUp'>HERE</Link>
+                <p>Doctors/staff please click<Link to='/DoctorLogin'>HERE</Link>
 </p>
                 <p>Forgot your password?</p>
             </div>
-        </div>
+        </>
     );
 }
 

@@ -3,6 +3,8 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css'
 import axios from 'axios'
 
+import NavHeader from '../PatientHeader/index.js'
+
 const PatientOnboarding = props => {
 
     const [patient, setPatient] = useState({ firstname: '', lastname: '', 
@@ -54,41 +56,48 @@ const PatientOnboarding = props => {
     }
 
     return (
-        <form onSubmit={event => handleSubmit(event)}>
-            <label>First name</label>
-            <input
-                name='firstname'
-                type='text'
-                value={patient.firstname}
-                onChange={event => handleChange(event)}
-            />
-            <label>Last name</label>
-            <input
-                name='lastname'
-                type='text'
-                value={patient.lastname}
-                onChange={event => handleChange(event)}
-            />
-            <label>Gender</label>
-            <select name='gender' onChange={event => handleChange(event)}>
-                <option value='male'>Male</option>
-                <option value='female'>Female</option>
-            </select>
-            <label>Location</label>
-            <input
-                name='location'
-                type='text'
-                value={patient.location}
-                onChange={event => handleChange(event)}
-            />
-            <label>Date of Birth</label>
-            <DayPickerInput
-                //value={patient.birthdate}
-                onDayChange={day => handleDayClick(day)}
-                selectedDays={patient.birthdate}
-            />
-            <button>Submit</button>
-        </form>
+        <>
+            <NavHeader />
+            <form className="sign-up-form" onSubmit={event => handleSubmit(event)}>
+                <img src='./assets/logo.png' alt='Immunify Logo' />
+                <br />
+                <label>First name</label>
+                <input className='signUpInput'
+                    name='firstname'
+                    type='text'
+                    value={patient.firstname}
+                    onChange={event => handleChange(event)}
+                />
+                <label>Last name</label>
+                <input className='signUpInput'
+                    name='lastname'
+                    type='text'
+                    value={patient.lastname}
+                    onChange={event => handleChange(event)}
+                />
+                <label>Gender</label>
+                <select name='gender' onChange={event => handleChange(event)}>
+                    <option value='male'>Male</option>
+                    <option value='female'>Female</option>
+                </select>
+                <br />
+                <label>Location</label>
+                <input className='signUpInput'
+                    name='location'
+                    type='text'
+                    value={patient.location}
+                    onChange={event => handleChange(event)}
+                />
+                <label>Date of Birth</label>
+                <DayPickerInput
+                    //value={patient.birthdate}
+                    onDayChange={day => handleDayClick(day)}
+                    selectedDays={patient.birthdate}
+                />
+                <br />
+                <button className='signUpButton'>Submit</button>
+            </form>
+        </>
     )
 }
 
