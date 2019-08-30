@@ -4,6 +4,8 @@ import axios from 'axios'
 import { UserContext } from '../../contexts/UserContext'
 import Immunizations from '../ImmunizationPage'
 
+import './PatientDashboard.scss'
+
 
 
 const PatientDashboard = () => {
@@ -41,20 +43,31 @@ const PatientDashboard = () => {
         <>
         {/* <UserContext.Provider value={rory}> */}
             <NavHeader />
-            <div>  <img /></div>
+            <div className='image-carousel'>  
+                <p>pictures go here</p>
+            </div>
             <div>
                 <h3>My Records</h3>
             {rory.map(parent => 
                 parent.wards.map(ward => 
                     
                     <>
-                        <button >{ward.firstname}</button>
+                        <button className='child-record'>
+                            {ward.firstname}
+                            <span className="child-record icon">></span>
+                        </button>
+                        <br />
+                        <br />
                         <Immunizations ward={ward}/>
                     </>
                    
                 )
                 )}
-                <button>Add Member</button>
+                <button className='add-child'>
+                    <span className="add-child-icon">+</span>Add Member
+                </button>
+                <br />
+                <br />
                 <button onClick={localStorage.clear()}>Log out</button>
             </div>
             {/* </UserContext.Provider> */}

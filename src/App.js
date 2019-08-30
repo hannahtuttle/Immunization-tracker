@@ -11,7 +11,7 @@ import DoctorSignUp from './components/DoctorSignUp'
 import DoctorLogin from './components/DoctorLogin'
 import Login from './components/LoginForm'
 
-import './App.css';
+import './App.scss';
 import Immunizations from './components/ImmunizationPage/index.js';
 
 
@@ -34,9 +34,9 @@ function App() {
             <Link to='/DoctorSignUp'>Doctor Sign Up</Link>
           </li>
           <Link to='/DoctorLogin' >Doctor Login</Link>
-        </ul>
+        </ul> 
         <Route exact path='/immunizations' component={Immunizations} />
-        <Route exact path='/' component={Login} />
+        <Route exact path='/' component={Login} /> 
         <Route exact path='/SignUp' component={SignUp} />
         <Route exact path='/DoctorSignUp' component={DoctorSignUp} />
         <Route exact path='/DoctorLogin' component={DoctorLogin} />
