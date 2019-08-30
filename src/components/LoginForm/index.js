@@ -14,7 +14,7 @@ function Login({ errors, touched, values, }) {
 
     return (
         <div className="sign-up-form">
-            <h2>[LOGO]</h2>
+            <img src='./assets/logofinal.png' alt='Immunify Logo' />
             <h3>Log in</h3>
             <Form >
                 <Field className='signUpInput' type="text" name="email" placeholder="Email" />
