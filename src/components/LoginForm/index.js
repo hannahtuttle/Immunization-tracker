@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 //import { axiosWithAuth } from '../../utils';
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+
+import LoginHeader from '../LoginHeader'
+
 import './LoginForm.scss'
 
 
@@ -13,25 +17,30 @@ function Login({ errors, touched, values, }) {
     const [login, setLogin] = useState({ email: '', password: '' });
 
     return (
-        <div className="sign-up-form">
-            <img src='./assets/logofinal.png' alt='Immunify Logo' />
-            <h3>Log in</h3>
-            <Form >
-                <Field className='signUpInput' type="text" name="email" placeholder="Email" />
-                {touched.email && errors.email && (
-                    <p className="error">{errors.email}</p>
-                )}
-                <br />
-                <br />
-                <Field className='signUpInput' type="password" name="password" placeholder="Password" />
-                {touched.password && errors.password && (
-                    <p className="error">{errors.password}</p>
-                )}
-                <br />
-                <button className='signUpButton ' type="submit">Login</button>
-            </Form>
-            <p>Don't have an account? SIGN UP</p>
-            <p>Forgot your password?</p>
+        <div className='login-wrapper'>
+            <LoginHeader />
+            <div className="sign-up-form">
+                <img src='./assets/logo.png' alt='Immunify Logo' />
+                <h3>Log in</h3>
+                <Form >
+                    <Field className='signUpInput' type="text" name="email" placeholder="Email" />
+                    {touched.email && errors.email && (
+                        <p className="error">{errors.email}</p>
+                    )}
+                    <br />
+                    <br />
+                    <Field className='signUpInput' type="password" name="password" placeholder="Password" />
+                    {touched.password && errors.password && (
+                        <p className="error">{errors.password}</p>
+                    )}
+                    <br />
+                    <button className='signUpButton ' type="submit">Login</button>
+                </Form>
+                <p>Don't have an account?<Link to='/SignUp'>SIGN UP</Link></p>
+                <p>Doctors/staff please click<Link to='/DoctorSignUp'>HERE</Link>
+</p>
+                <p>Forgot your password?</p>
+            </div>
         </div>
     );
 }

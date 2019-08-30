@@ -8,7 +8,7 @@ const NavHeader = () => {
     <div className='patient-header'>
       <div className='logo'>
         <a href='https://immunify-app.netlify.com/'>
-          <img src='./assets/logofinal.png' alt='Immunify Home Page' />
+          <img src='./assets/logo-small.png' alt='Immunify Home Page' />
         </a>
       </div>
       <nav>
