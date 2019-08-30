@@ -2,24 +2,30 @@ import React, { useState } from 'react'
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 import axios from 'axios'
+import './addChildForm.scss'
+import {Link} from 'react-router-dom'
+
+
+import NavHeader from '../PatientHeader/index.js'
+
 const AddChildForm = () => {
 
     const [child, setChild] = useState({ firstname: '', lastname: '', birthdate: '', gender: '' })
 
     const handleSubmit = event => {
         event.preventDefault()
-        // axios.post('http://rcm-immunization-tracker.herokuapp.com/', child, {
+        // axios.post('https://rcm-immunization-tracker.herokuapp.com/wards/ward', child, {
         //     headers: {
         //         Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
         //         'context-type': 'placeholder'
 
         //     }
         //})
-            .then(res => {
-                console.log(res)
-            })
-            .catch(err => err.response)
-        console.log('child submit', child)
+        //     .then(res => {
+        //         console.log(res)
+        //     })
+        //     .catch(err => err.response)
+        // console.log('child submit', child)
     }
 
     const handleChange = event => {
@@ -38,9 +44,13 @@ const AddChildForm = () => {
     }
 
     return (
-        <form onSubmit={event => handleSubmit(event)}>
+        <>
+        <NavHeader />
+        <form  className='sign-up-form' onSubmit={event => handleSubmit(event)}>
+            <img src='./assets/logo.png' alt='Immunify Logo' />
             <label>First name</label>
             <input
+                className='signUpInput'
                 name='firstname'
                 type='text'
                 value={child.firstname}
@@ -48,6 +58,7 @@ const AddChildForm = () => {
             />
             <label>Last name</label>
             <input
+                className='signUpInput'
                 name='lastname'
                 type='text'
                 value={child.lastname}
@@ -64,8 +75,9 @@ const AddChildForm = () => {
                 onDayChange={day => handleDayClick(day)}
                 selectedDays={child.birthdate}
             />
-            <button>Add Family Member</button>
+            <Link to='PatientDashboard'><button className='signUpButton'>Add Family Member</button></Link>
         </form>
+        </>
     )
 }
 

@@ -10,6 +10,7 @@ import { DoctorOnboarding } from './components/DoctorOnboarding'
 import DoctorSignUp from './components/DoctorSignUp'
 import DoctorLogin from './components/DoctorLogin'
 import Login from './components/LoginForm'
+import addChildForm from './components/addChildrenForm'
 
 import './App.scss';
 import Immunizations from './components/ImmunizationPage/index.js';
@@ -36,16 +37,17 @@ function App() {
           <Link to='/DoctorLogin' >Doctor Login</Link>
         </ul>  */}
         <Route exact path='/immunizations' component={Immunizations} />
-        <Route exact path='/' component={PatientDashboard} /> 
+        <Route exact path='/' component={Login } /> 
         <Route exact path='/SignUp' component={SignUp} />
         <Route exact path='/DoctorSignUp' component={DoctorSignUp} />
         <Route exact path='/DoctorLogin' component={DoctorLogin} />
+        <Route exact path='/addChild' component={addChildForm}/>
         {/* <Route exact path='/PatientOnboarding' component={PatientOnboarding} />
-          <Route exact path='/PatientDashboard' component={PatientDashboard} />
           <Route exact path='/DoctorDashboard' component={DoctorDashboard} />
-          <Route exact path='/DoctorOnboarding' component={DoctorOnboarding} /> */}
+        <Route exact path='/DoctorOnboarding' component={DoctorOnboarding} /> */}
+        <Route exact path='/PatientDashboard' component={PatientDashboard} />
         <PrivateRoute exact path='/PatientOnboarding' component={PatientOnboarding} />
-        <PrivateRoute exact path='/PatientDashboard' component={PatientDashboard} />
+        {/* <PrivateRoute exact path='/PatientDashboard' component={PatientDashboard} /> */}
         <PrivateRoute exact path='/DoctorDashboard' component={DoctorDashboard} />
         <PrivateRoute exact path='/DoctorOnboarding' component={DoctorOnboarding} />
       </div>

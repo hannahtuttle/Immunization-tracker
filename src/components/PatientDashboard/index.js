@@ -3,6 +3,8 @@ import NavHeader from '../PatientHeader/index.js'
 import axios from 'axios'
 import { UserContext } from '../../contexts/UserContext'
 import Immunizations from '../ImmunizationPage'
+import addChildForm from '../addChildrenForm'
+import {Link} from 'react-router-dom'
 
 import './PatientDashboard.scss'
 
@@ -63,12 +65,12 @@ const PatientDashboard = () => {
                    
                 )
                 )}
-                <button className='dashbutton add-child'>
+                <Link to='/addChild'><button className='dashbutton add-child'>
                     <span className="add-child-icon">+</span>Add Member
-                </button>
+                </button></Link>
                 <br />
                 <br />
-                <button className='dashbutton dash-reset' onClick={localStorage.clear()}>Log out</button>
+                <Link to='/'><button className='dashbutton dash-reset' onClick={localStorage.clear()}>Log out</button></Link>
             </div>
             {/* </UserContext.Provider> */}
         </>
