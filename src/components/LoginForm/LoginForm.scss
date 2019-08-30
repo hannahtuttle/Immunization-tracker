@@ -9,8 +9,8 @@
     align-items: center;
 
     img {
-        width: 41px;
-        height: auto;
+        height: 64px;
+        width: auto;
     }
 }
 
@@ -39,4 +39,9 @@
     color: white;
     font-size: 20px;
     border-radius: 4px;
+}
+
+.error {
+    color: red;
+    font-size: 1rem;
 }

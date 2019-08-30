@@ -4,6 +4,9 @@ import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 //import { axiosWithAuth } from '../../utils';
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+
+import LoginHeader from '../LoginHeader'
 
 
 
@@ -12,26 +15,30 @@ function DoctorLogin({ errors, touched, values }) {
     //const [doctorLogin, setDoctorLogin] = useState({ email: '', password: ''});
 
     return (
-        <div className="sign-up-form">
-            <h2>[LOGO]</h2>
-            <h3>Sign in</h3>
-            <Form>
-                <Field className='signUpInput' type="email" name="email" placeholder="Email" />
-                {touched.email && errors.email && (
-                    <p className="error">{errors.email}</p>
-                )}
-                <br />
-                <br />
-                <Field className='signUpInput' type="password" name="password" placeholder="Password" />
-                {touched.password && errors.password && (
-                    <p className="error">{errors.password}</p>
-                )}
-                <br />
-                <button className='signUpButton ' type="submit">Sign Up</button>
-            </Form>
-            <p>Don't have an account? SIGN UP</p>
-            <p>Forgot your password?</p>
-        </div>
+        <>
+            <LoginHeader />
+            <div className="sign-up-form">
+            <img src='./assets/logo.png' alt='Immunify Logo' />
+                <h3>Sign in</h3>
+                <Form>
+                    <Field className='signUpInput' type="email" name="email" placeholder="Email" />
+                    {touched.email && errors.email && (
+                        <p className="error">{errors.email}</p>
+                    )}
+                    <br />
+                    <br />
+                    <Field className='signUpInput' type="password" name="password" placeholder="Password" />
+                    {touched.password && errors.password && (
+                        <p className="error">{errors.password}</p>
+                    )}
+                    <br />
+                    <button className='signUpButton ' type="submit">Sign Up</button>
+                </Form>
+                <p>Don't have an account?<Link to='/SignUp'>SIGN UP</Link></p>
+                <p>Patients/caregivers please click<Link to='/'>HERE</Link></p>
+                <p>Forgot your password?</p>
+            </div>
+        </>
     );
 }
 

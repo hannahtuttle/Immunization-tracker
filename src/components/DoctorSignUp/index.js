@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
+import LoginHeader from '../LoginHeader'
+
 import './DoctorSignUp.scss'
 
 const DoctorSignUp = props => {
@@ -29,29 +31,32 @@ const DoctorSignUp = props => {
     }
 
     return (
-        <form className='sign-up-form' onSubmit={event => handleSubmit(event)}>
-            <div>logo</div>
-            <h2>Welcome to Immunify</h2>
-            <h3>Sign up</h3>
-            <label className='signUplabel'>UserName</label>
-            <input
-                className='signUpInput'
-                name='username'
-                type='email'
-                value={newDoctor.username}
-                onChange={event => handleChange(event)}
-            />
+        <>
+        <LoginHeader />
+            <form className='sign-up-form' onSubmit={event => handleSubmit(event)}>
+            <img src='./assets/logo.png' alt='Immunify Logo' />
+                <h2>Welcome to Immunify</h2>
+                <h3>Sign up (providers)</h3>
+                <label className='signUplabel'>UserName</label>
+                <input
+                    className='signUpInput'
+                    name='username'
+                    type='email'
+                    value={newDoctor.username}
+                    onChange={event => handleChange(event)}
+                />
 
-            <label className='signUplabel'>Password</label>
-            <input
-                className='signUpInput'
-                name='password'
-                type='text'
-                value={newDoctor.password}
-                onChange={event => handleChange(event)}
-            />
-            <button className='signUpButton' type='submit'>SignUp</button>
-        </form>
+                <label className='signUplabel'>Password</label>
+                <input
+                    className='signUpInput'
+                    name='password'
+                    type='text'
+                    value={newDoctor.password}
+                    onChange={event => handleChange(event)}
+                />
+                <button className='signUpButton' type='submit'>Sign Up</button>
+            </form>
+        </>
     )
 }
 

@@ -6,7 +6,13 @@
     flex-direction: column;
     padding: 20px;
     border-radius: 4px;
+    
+    img {
+        height: 64px;
+        width: auto;
+    }
 }
+
 
 .signUplabel{
     text-align: left;
@@ -33,4 +39,8 @@
     color: white;
     font-size: 20px;
     border-radius: 4px;
+}
+.error {
+    color: red;
+    font-size: 1rem;
 }

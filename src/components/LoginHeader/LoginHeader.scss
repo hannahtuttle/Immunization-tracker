@@ -1,0 +1,25 @@
+.login-header {
+    width: 100%;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo-home {
+        display: flex;
+        align-items: center;
+        margin-left: 24px;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        margin-right: 18px;
+
+        a{
+            margin-left: 10px;            
+        }
+    }    
+}
+
+
