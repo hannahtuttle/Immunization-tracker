@@ -63,15 +63,18 @@ const DoctorLoginForm = withFormik({
                 console.log('Result', response)
             })
             .catch(err => console.log(err.response))
-            axios.get('https://rcm-immunization-tracker.herokuapp.com/users/users')
+        axios.get('https://rcm-immunization-tracker.herokuapp.com/users/users')
             .then(res => {
                 const currentUser = res.data.filter(id => id.username === values.email)
                 console.log('current user array', currentUser)
                 localStorage.setItem('currentUser', JSON.stringify(currentUser))
                 window.location.href = '/DoctorOnboarding'
-            //console.log('checking to see if i get a list of all users', res.data)
-        })
-        .catch(err => console.log('error on get request to get all users', err.response))
+                //console.log('checking to see if i get a list of all users', res.data)
+            })
+            .catch(err => console.log('error on get request to get all users', err.response))
+        setTimeout(() => {
+
+        }, 500)
     }
 
 })(DoctorLogin);
