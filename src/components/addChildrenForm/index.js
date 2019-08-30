@@ -8,13 +8,13 @@ const AddChildForm = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        axios.post('http://rcm-immunization-tracker.herokuapp.com/', child, {
-            headers: {
-                Authorization: `Basic ${btoa('lambda-client-g: lambda-secret-g')}`,
-                'context-type': 'placeholder'
+        // axios.post('http://rcm-immunization-tracker.herokuapp.com/', child, {
+        //     headers: {
+        //         Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
+        //         'context-type': 'placeholder'
 
-            }
-        })
+        //     }
+        //})
             .then(res => {
                 console.log(res)
             })

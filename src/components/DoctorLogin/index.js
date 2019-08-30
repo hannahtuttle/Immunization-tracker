@@ -12,22 +12,22 @@ function DoctorLogin({ errors, touched, values }) {
     //const [doctorLogin, setDoctorLogin] = useState({ email: '', password: ''});
 
     return (
-        <div className="login-wrapper">
+        <div className="sign-up-form">
             <h2>[LOGO]</h2>
             <h3>Sign in</h3>
             <Form>
-                <Field type="email" name="email" placeholder="Email" />
+                <Field className='signUpInput' type="email" name="email" placeholder="Email" />
                 {touched.email && errors.email && (
                     <p className="error">{errors.email}</p>
                 )}
                 <br />
                 <br />
-                <Field type="password" name="password" placeholder="Password" />
+                <Field className='signUpInput' type="password" name="password" placeholder="Password" />
                 {touched.password && errors.password && (
                     <p className="error">{errors.password}</p>
                 )}
                 <br />
-                <button type="submit">Sign Up</button>
+                <button className='signUpButton ' type="submit">Sign Up</button>
             </Form>
             <p>Don't have an account? SIGN UP</p>
             <p>Forgot your password?</p>

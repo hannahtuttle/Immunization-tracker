@@ -4,6 +4,7 @@ import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 //import { axiosWithAuth } from '../../utils';
 import axios from 'axios'
+import './LoginForm.scss'
 
 
 
@@ -12,22 +13,22 @@ function Login({ errors, touched, values, }) {
     const [login, setLogin] = useState({ email: '', password: '' });
 
     return (
-        <div className="login-wrapper">
+        <div className="sign-up-form">
             <h2>[LOGO]</h2>
-            <h3>Sign in</h3>
-            <Form>
-                <Field type="text" name="email" placeholder="Email" />
+            <h3>Log in</h3>
+            <Form >
+                <Field className='signUpInput' type="text" name="email" placeholder="Email" />
                 {touched.email && errors.email && (
                     <p className="error">{errors.email}</p>
                 )}
                 <br />
                 <br />
-                <Field type="password" name="password" placeholder="Password" />
+                <Field className='signUpInput' type="password" name="password" placeholder="Password" />
                 {touched.password && errors.password && (
                     <p className="error">{errors.password}</p>
                 )}
                 <br />
-                <button type="submit">Login</button>
+                <button className='signUpButton ' type="submit">Login</button>
             </Form>
             <p>Don't have an account? SIGN UP</p>
             <p>Forgot your password?</p>
