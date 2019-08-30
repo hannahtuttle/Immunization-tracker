@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
+
+import NavHeader from '../PatientHeader/index.js'
+import './DoctorDashboard.scss'
 
 
 export const DoctorDashboard = () => {
@@ -34,6 +38,10 @@ export const DoctorDashboard = () => {
 
   return (
     <>
+    <NavHeader />
+    <div className='image-carousel'>  
+                <p>pictures go here</p>
+            </div>
       <div>List of patients go here</div>
       {maGoo.map(person =>
         // console.log('person', person)
@@ -41,7 +49,7 @@ export const DoctorDashboard = () => {
           //console.log('permission', permission)
           permission.guardian.wards.map(ward =>
             //console.log('ward', ward)
-            <div>{ward.firstname}</div>
+            <div className='dashbutton child-record'>{ward.firstname}</div>
 
           )
 
@@ -50,7 +58,7 @@ export const DoctorDashboard = () => {
 
       )}
       {/* {Object.keys(maGoo.wards).map((ward, index) => <li>{key={index} }</li>)} */}
-      <button onClick={localStorage.clear()}>Log out</button>
+      <Link to='/'><button className='dashbutton dash-reset' onClick={localStorage.clear()}>Log out</button></Link>
     </>
   )
 }

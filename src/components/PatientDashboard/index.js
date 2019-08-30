@@ -70,7 +70,7 @@ const PatientDashboard = () => {
                 </button></Link>
                 <br />
                 <br />
-                <button className='dashbutton dash-reset' onClick={localStorage.clear()}>Log out</button>
+                <Link to='/'><button className='dashbutton dash-reset' onClick={localStorage.clear()}>Log out</button></Link>
             </div>
             {/* </UserContext.Provider> */}
         </>
