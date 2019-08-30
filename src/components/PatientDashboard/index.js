@@ -54,7 +54,7 @@ const PatientDashboard = () => {
                 parent.wards.map(ward => 
                     
                     <>
-                        <button className='child-record'>
+                        <button className='dashbutton child-record'>
                             {ward.firstname}
                             <span className="child-record icon">></span>
                         </button>
@@ -65,12 +65,12 @@ const PatientDashboard = () => {
                    
                 )
                 )}
-                <Link to='/addChild'><button className='add-child'>
+                <Link to='/addChild'><button className='dashbutton add-child'>
                     <span className="add-child-icon">+</span>Add Member
                 </button></Link>
                 <br />
                 <br />
-                <button onClick={localStorage.clear()}>Log out</button>
+                <button className='dashbutton dash-reset' onClick={localStorage.clear()}>Log out</button>
             </div>
             {/* </UserContext.Provider> */}
         </>
