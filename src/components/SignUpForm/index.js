@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import './SignUpForm.scss'
 
 
 const SignUp = props => {
@@ -27,24 +28,31 @@ const SignUp = props => {
     }
 
     return (
-        <form onSubmit={event => handleSubmit(event)}>
-            <label>UserName</label>
+        <>
+        <form className='sign-up-form' onSubmit={event => handleSubmit(event)}>
+        <div>logo</div>
+        <h2>Welcome to Immunify</h2>
+        <h3>Sign up</h3>
+            <label className='signUplabel'>UserName</label>
             <input
+                className='signUpInput'
                 name='username'
                 type='email'
                 value={newUser.username}
                 onChange={event => handleChange(event)}
             />
 
-            <label>Password</label>
+            <label className='signUplabel'>Password</label>
             <input
+                className='signUpInput'
                 name='password'
                 type='text'
                 value={newUser.password}
                 onChange={event => handleChange(event)}
             />
-            <button type='submit'>SignUp</button>
+            <button className='signUpButton' type='submit'>SignUp</button>
         </form>
+        </>
     )
 }
 
